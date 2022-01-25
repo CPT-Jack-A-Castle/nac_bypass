@@ -178,6 +178,7 @@ InitialSetup() {
 
     echo 8 > /sys/class/net/br0/bridge/group_fwd_mask # forward EAP packets
     echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
+    #$CMD_IPTABLES -A FORWARD -p all -i $BRINT -j ACCEPT
 
     ifconfig $COMPINT 0.0.0.0 up promisc # bring up comp interface
     ifconfig $SWINT 0.0.0.0 up promisc # bring up switch interface
